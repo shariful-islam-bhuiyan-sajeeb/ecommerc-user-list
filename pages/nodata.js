@@ -1,6 +1,6 @@
 import React from "react";
 
-const nodata = () => {
+const Nodata = () => {
   return (
     <div className=" flex flex-col items-start">
       <h2 className="uppercase text-2xl">NO Data Show</h2>
@@ -9,4 +9,4 @@ const nodata = () => {
   );
 };
 
-export default nodata;
+export default Nodata;

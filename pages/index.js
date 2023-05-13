@@ -3,12 +3,17 @@ import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import DetailsPage from "./DetailsPage";
+import Nodata from "./nodata";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [defaultCard, setDefaultCard] = useState();
   const [userList, setUserList] = useState();
   const [details, setDetails] = useState();
+  // "details" === " " ? details : userList?.slice(50, 51)?.map((u) => u)
+  // console.log(details);
+
   useEffect(() => {
     fetch("https://602e7c2c4410730017c50b9d.mockapi.io/users")
       .then((res) => res.json())
@@ -16,6 +21,7 @@ export default function Home() {
   }, []);
   // console.log(details);
   // console.log(userList);
+
   return (
     <main className="max-w-7xl mx-auto  my-20">
       <div className=" flex sm:flex-row flex-col lg:px-4 px-2 lg:justify-between justify-center lg:gap-0 gap-6 w-full mx-auto">
@@ -89,7 +95,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-10 bg-slate-200 xl:px-8 lg:px-6 md:px-5 sm:px-4 px-2 rounded">
-            {details ? <DetailsPage details={details} /> : "NO DATA SHOW"}
+            {details ? <DetailsPage details={details} /> : <Nodata />}
           </div>
         </div>
       </div>
