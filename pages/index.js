@@ -11,8 +11,6 @@ export default function Home() {
   const [defaultCard, setDefaultCard] = useState();
   const [userList, setUserList] = useState();
   const [details, setDetails] = useState();
-  // "details" === " " ? details : userList?.slice(50, 51)?.map((u) => u)
-  // console.log(details);
 
   useEffect(() => {
     fetch("https://602e7c2c4410730017c50b9d.mockapi.io/users")
